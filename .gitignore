@@ -7,4 +7,10 @@ bower_components
 dist
 markup
 input
+app/*.html
+app/css/*.css
 reports
+assets
+gulpfile
+package.json
+index.html
