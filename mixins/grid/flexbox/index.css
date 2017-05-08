@@ -1,0 +1,75 @@
+/* Flexbox semantic grid
+--------------------------------*/
+* {
+  box-sizing: border-box; }
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  flex: 0 1 auto;
+  max-width: 1280px;
+  margin: 0 auto; }
+
+.grid__item {
+  box-sizing: border-box;
+  flex: 50% 50% auto;
+  flex-basis: 50%;
+  max-width: 50%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 2rem; }
+
+.box {
+  height: 100px;
+  background-color: #00746a; }
+
+.modules {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  flex: 0 1 auto;
+  max-width: 1024px;
+  margin: 0 auto; }
+
+.module__inner {
+  height: 100px;
+  background-color: #00746a; }
+
+.module--1 {
+  box-sizing: border-box;
+  flex: 25% 25% auto;
+  flex-basis: 25%;
+  max-width: 25%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 2rem; }
+
+.module--2 {
+  box-sizing: border-box;
+  flex: 100% 100% auto;
+  flex-basis: 100%;
+  max-width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 2rem; }
+.module--2 .module__inner {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  flex: 0 1 auto;
+  max-width: 100%;
+  margin: 0 auto; }
+
+.module-nested__inner {
+  height: 50px;
+  background-color: lightgray; }
+
+.module-nested {
+  box-sizing: border-box;
+  flex: 100% 100% auto;
+  flex-basis: 100%;
+  max-width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 2rem; }

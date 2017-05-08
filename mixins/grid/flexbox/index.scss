@@ -1,0 +1,93 @@
+/* Flexbox semantic grid
+--------------------------------*/
+
+// Columns
+$one: 8.33%;
+$two: 16.667%;
+$three: 25%;
+$four: 33.333%;
+$five: 41.667%;
+$six: 50%;
+$seven: 58.333%;
+$eight: 66.667%;
+$nine: 75%;
+$ten: 83.333%;
+$eleven: 91.667%;
+$twelve: 100%;
+
+$gutter: 1rem !global;
+
+// Container Mixin
+@mixin grid($width: $container) {
+
+  $container: $width;
+
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  flex: 0 1 auto;
+
+  max-width: $container;
+  margin: 0 auto;
+
+}
+
+// Column Mixin
+@mixin column($span: $columns) {
+
+  $columns: $span;
+
+  box-sizing: border-box;
+  flex: $columns $columns auto;
+  flex-basis: $columns;
+  max-width: $columns;
+
+  padding-right: $gutter;
+  padding-left: $gutter;
+  padding-bottom: $gutter*2;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.grid {
+  @include grid(1280px);
+}
+
+.grid__item {
+  @include column($six);
+}
+
+.box {
+  height: 100px;
+  background-color: #00746a;
+}
+
+.modules {
+  @include grid(1024px);
+}
+
+.module__inner {
+  height: 100px;
+  background-color: #00746a;
+}
+.module--1 {
+  @include column($three);
+}
+.module--2 {
+  @include column($twelve);
+  .module__inner {
+    @include grid(100%);
+  }
+}
+
+.module-nested__inner {
+  height: 50px;
+  background-color: lightgray;
+}
+
+.module-nested {
+  @include column($twelve);
+}
