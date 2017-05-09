@@ -19,9 +19,7 @@ $gutter: 1rem !global;
 
 // Container Mixin
 @mixin grid($width: $container) {
-
   $container: $width;
-
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
@@ -31,9 +29,7 @@ $gutter: 1rem !global;
 
 // Column Mixin
 @mixin column($span: $columns) {
-
   $columns: $span;
-
   box-sizing: border-box;
   flex: 0 1 $columns;
   max-width: $columns;
