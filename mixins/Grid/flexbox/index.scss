@@ -25,11 +25,8 @@ $gutter: 1rem !global;
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
-  flex: 0 1 auto;
-
   max-width: $container;
   margin: 0 auto;
-
 }
 
 // Column Mixin
@@ -38,14 +35,9 @@ $gutter: 1rem !global;
   $columns: $span;
 
   box-sizing: border-box;
-  flex: $columns $columns auto;
-  flex-basis: $columns;
+  flex: 0 1 $columns;
   max-width: $columns;
-
-  padding-right: $gutter;
-  padding-left: $gutter;
-  padding-bottom: $gutter*2;
-
+  padding: 0 $gutter $gutter;
 }
 
 * {
