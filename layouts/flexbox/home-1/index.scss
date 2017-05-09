@@ -1,0 +1,193 @@
+/* Variables
+--------------------------------*/
+
+
+/* Columns
+---------------*/
+$one: 8.33%;
+$two: 16.667%;
+$three: 25%;
+$four: 33.333%;
+$five: 41.667%;
+$six: 50%;
+$seven: 58.333%;
+$eight: 66.667%;
+$nine: 75%;
+$ten: 83.333%;
+$eleven: 91.667%;
+$twelve: 100%;
+
+/* Gutter
+---------------*/
+$gutter: 0.9375rem !global;
+
+/* Colors
+---------------*/
+$white:         #fff;
+$rosybrown:     #da9;
+$darkslategray: #245;
+$tan:           #daa;
+$silver:        #ccc;
+
+/* Font
+---------------*/
+$roboto:        'Roboto', sans-serif;
+
+/* Breakpoints
+---------------*/
+$breakpoints: (
+        "phone":        400px,
+        "phone-wide":   480px,
+        "phablet":      560px,
+        "tablet-small": 640px,
+        "tablet":       768px,
+        "tablet-wide":  1024px,
+        "desktop":      1248px,
+        "desktop-wide": 1440px
+);
+
+
+/* Mixins
+--------------------------------*/
+
+
+/* Container Mixin
+-----------------*/
+@mixin grid($width: $container) {
+  $container: $width;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  max-width: $container;
+  margin: 0 auto;
+}
+
+/* Column Mixin
+-----------------*/
+@mixin column($span: $columns) {
+  $columns: $span;
+  box-sizing: border-box;
+  flex: 0 1 $columns;
+  max-width: $columns;
+  padding: 0 $gutter $gutter;
+}
+
+/* Media queries
+-----------------*/
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+
+/* General Styles
+---------------*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 10px;
+  font-family: $roboto;
+  color: $darkslategray;
+  margin: 0;
+  padding: 0;
+}
+
+/* Content Styles
+---------------*/
+.pageintro {
+  width: 100%;
+  height: 20rem;
+  line-height: 20rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: $gutter;
+
+  @include mq('tablet-small') {
+    margin-bottom: $gutter*2;
+  }
+}
+
+.pageintro + .placeholder {
+  height: 20rem;
+  background: $rosybrown url(../../images/img-1.jpeg) 50% 17% no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.tagline {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 3;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  color: $silver;
+  text-align: center;
+  background: $tan;
+  line-height: 1.25rem;
+  font-size: 2.3125rem;
+
+  @include mq('tablet-small') {
+    line-height: $gutter*2;
+    font-size: 3.6rem;
+  }
+}
+
+.container {
+  @include grid(128rem);
+
+  @include mq('tablet-small') {
+    padding: 0 $gutter;
+  }
+}
+
+.block {
+  @include column($twelve);
+
+  @include mq('tablet-small') {
+    @include column($four);
+  }
+}
+
+.box {
+  background-color: $tan;
+  height: 100%;
+  min-height: 100%;
+  padding: 1rem;
+}
+
+.titles-holder {
+  text-align: center;
+  font-size: 2em;
+}
+
+.main-title, .sub-title {
+  text-transform: uppercase;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 0;
+}
+
+p {
+  font-size: 13px;
+  line-height: 21px;
+}
