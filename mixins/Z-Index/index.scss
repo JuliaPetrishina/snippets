@@ -1,0 +1,28 @@
+/* Z-Index
+----------------- */
+
+/* Usage
+----------------- */
+
+/* --------------
+.tagline {
+    z-index: z('tagline'); // z-index: 1
+}
+
+.pageintro {
+    z-index: z('pageintro'); // z-index: 2
+}
+---------------*/
+
+@function z($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
+}
+$z-indexes: (
+  "tagline",
+  "pageintro"
+);
