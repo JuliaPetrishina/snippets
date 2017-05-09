@@ -1,0 +1,27 @@
+/* Links Mixin
+----------------- */
+/* Usage
+----------------- */
+/* --------------
+.link {
+   @include linx($white, $darkslategray, $silver, $darkslategray, $rosybrown);
+}
+---------------*/
+
+@mixin linx ($link, $visit, $hover, $active, $focus) {
+  & {
+    color: $link;
+    &:visited {
+      color: $visit;
+    }
+    &:hover {
+      color: $hover;
+    }
+    &:active {
+      color: $active;
+    }
+    &:focus {
+      color: $focus;
+    }
+  }
+}
