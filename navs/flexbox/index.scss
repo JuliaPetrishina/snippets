@@ -1,0 +1,66 @@
+
+// Colors variables
+$white: white;
+$black: black;
+$dimgray: #6f5a51;
+$orange: #fbba04;
+
+html {
+  font-size: 10px;
+}
+
+.nav {
+  background-color: $dimgray;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo-holder {
+  flex: 0 0 20%;
+}
+
+.phone-holder {
+  flex: 0 0 30%;
+}
+
+.nav-list {
+  display: flex;
+  flex: 0 0 50%;
+}
+
+.nav-item {
+  padding: 3rem;
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -0.2rem;
+  }
+
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.nav-link {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+  font-size: 1rem;
+  padding: 0 0.5rem 2.8rem;
+}
+
+.nav-link-active {
+  color: $orange;
+  border-bottom: 0.2rem solid $orange;
+}
+
